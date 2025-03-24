@@ -13,14 +13,12 @@ function testSLLOne() {
   let data = ll.pop();
   console.log("linkedlist.pop(): " + data);
   console.log("linkedlist.count:" + ll.count);
-  console.log("\n");
 
   while (data != null) {
     console.log("linkedlist.peek(): " + ll.peek());
     data = ll.pop();
     console.log("linkedlist.pop(): " + data);
     console.log("linkedlist.count:" + ll.count);
-    console.log("\n");
   }
 
   console.log("SinglyLinkedList.peek(): " + ll.peek());
@@ -28,8 +26,10 @@ function testSLLOne() {
 }
 
 function testSLLTwo() {
-  function soundOff(data) {
-    console.log(data);
+  let sum = 0;
+
+  function sumData(data) {
+    sum += data;
   }
 
   let list = new SinglyLinkedList();
@@ -40,11 +40,18 @@ function testSLLTwo() {
   list.push(19);
   list.push(53);
 
-  list.traverse(soundOff);
+  list.traverse();
+  list.traverse(sumData);
+  console.log("The sum of all of the data in the linked list is " + sum);
+
+  const arr = list.toArray();
+  console.log("list.toArray(): " + arr);
 }
 
 console.log("TESTING testSLLOne");
 testSLLOne();
+
+console.log("\n\r");
 
 console.log("TESTING testSLLTwo");
 testSLLTwo();

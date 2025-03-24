@@ -60,14 +60,32 @@ class SinglyLinkedList {
     return this.head.data;
   }
 
-  // traverse the linked list, execute given function with the nodes data as param, essentially arr.forEach.
-  traverse( func ) {
+  // Traverse the linked list, execute given function with the nodes data as param, essentially arr.forEach.
+  // If fx is null, log the value of data to the console.
+  traverse( fx = null) {
     let node = this.head;
 
     while( node !== null ) {
-      func(node.data);
+      if( fx === null )
+        console.log(node.data);
+      else
+        fx(node.data);
+
       node = node.next;
     }
+  }
+
+  // Converts this linked list into an array of the list nodes data.
+  toArray(){
+    let arr = [];
+
+    function addToArray(data) {
+      arr.push(data);
+    }
+    
+    // Demonstrate practical use of traverse.
+    this.traverse(addToArray);
+    return arr;
   }
 }
 
