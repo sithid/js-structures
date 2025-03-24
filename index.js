@@ -1,7 +1,7 @@
 const { SinglyLinkedList } = require("./structures/SinglyLinkedList.js");
 
 
-function testSLL() {
+function testSLLOne() {
   console.log("Testing various data structures implemented in javascript.");
 
   const ll = new SinglyLinkedList();
@@ -27,4 +27,24 @@ function testSLL() {
   console.log("linkedlist.count: " + ll.count);
 }
 
-testSLL();
+function testSLLTwo() {
+  function soundOff(data) {
+    console.log(data);
+  }
+
+  let list = new SinglyLinkedList();
+
+  list.push(10);
+  list.push(15);
+  list.push(20);
+  list.push(19);
+  list.push(53);
+
+  list.traverse(soundOff);
+}
+
+console.log("TESTING testSLLOne");
+testSLLOne();
+
+console.log("TESTING testSLLTwo");
+testSLLTwo();
