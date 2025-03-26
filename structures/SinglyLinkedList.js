@@ -1,4 +1,4 @@
-class SinglyLinkedListNode {
+class SinglyLinkedNode {
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -17,38 +17,38 @@ class SinglyLinkedList {
   // Insert a new node with specified data at the head of the linked list.
   // LIFO
   push(data) {
-    let newHead = new SinglyLinkedListNode(data);
+    let newHead = new SinglyLinkedNode(data);
 
     if (this.head === null) {
       this.head = newHead;
       ++this.count;
-      return;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+      ++this.count;
     }
-
-    newHead.next = this.head;
-    this.head = newHead;
-    ++this.count;
   }
 
   // Pop the data from the head node.
   // LIFO
   pop() {
-    if (this.count < 1) {
+    if (this.count < 1)
       return null;
-    } else {
-      let data = this.head.data;
+    
+    let data = this.head.data;
 
-      if (this.count > 1) {
-        this.head = this.head.next;
-        --this.count;
+    if (this.head.next !== null) {
+      let nextHead = this.head.next;
 
-        return data;
-      } else {
-        this.head = null;
-        --this.count;
-        return data;
-      }
+      this.head = nextHead;
+      --this.count;
     }
+    else {
+      this.head = null;
+      this.count = 0;
+    }
+
+    return data;
   }
 
   // Peek the data of the head node.
