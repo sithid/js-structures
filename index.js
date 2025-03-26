@@ -1,5 +1,6 @@
-const { DoublyLinkedList } = require("./structures/DoublyLinkedList.js");
-const { SinglyLinkedList } = require("./structures/SinglyLinkedList.js");
+const { DoublyLinkedList } = require("./structures/lists/DoublyLinkedList.js");
+const { SinglyLinkedList } = require("./structures/lists/SinglyLinkedList.js");
+const { CircularDoublyLinkedList } = require("./structures/lists/CircularDoublyLinkedList.js");
 
 function testSLLOne() {
   console.log("Testing various data structures implemented in javascript.");
@@ -87,15 +88,69 @@ function testDLL() {
   console.log("list.toArray(): " + arr);
 }
 
+function testCDLL() {
+  let sum = 0;
+  let count = 0; 
+
+  function sumData(data) {
+    sum += data;
+  }
+
+  function subData(data) {
+    sum -= data;
+  }
+
+  let list = new CircularDoublyLinkedList();
+
+  list.insertAtHead(10);
+  list.insertAtTail(15);
+  list.insertAtHead(20);
+  list.insertAtTail(19);
+  list.insertAtHead(53);
+  list.insertAtTail(12);
+
+  console.log("Traversing once through the circular list from head: ");
+  list.traverse();
+  list.traverse(sumData);
+  console.log("Sum after first traversal: " + sum);
+
+  console.log("\nReversing once through the circular list from tail: ");
+  list.reverse();
+  list.reverse(subData);
+  console.log("Sum after reversal: " + sum);
+
+  console.log(
+    "\nDemonstrating circular nature - following 'next' pointer 12 times:"
+  );
+  let current = list.head;
+  for (let i = 0; i < 12; i++) {
+    console.log(current.data);
+    current = current.next;
+  }
+
+  console.log("\nRemoving from both ends:");
+  console.log("Remove head: " + list.removeHead());
+  console.log("Remove tail: " + list.removeTail());
+
+  console.log("\nFinal list state:");
+  list.traverse();
+
+  const arr = list.toArray();
+  console.log("list.toArray(): " + arr);
+}
+
+console.log("\n\r");
 console.log("TESTING testSLLOne");
 testSLLOne();
 
 console.log("\n\r");
-
 console.log("TESTING testSLLTwo");
 testSLLTwo();
 
 console.log("\n\r");
-
 console.log("TESTING testDLL");
 testDLL();
+
+console.log("\n\r");
+console.log("TESTING testCDLL");
+testCDLL();

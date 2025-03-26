@@ -94,7 +94,7 @@ class DoublyLinkedList {
 
     return data;
   }
-  // Peek the data of the head node.
+
   peekHead() {
     if (this.head === null) {
       return null;
@@ -110,8 +110,7 @@ class DoublyLinkedList {
 
     return this.tail.data;
   }
-  // Traverse the linked list, execute given function with the nodes data as param, essentially arr.forEach.
-  // If fx is null, log the value of data to the console.
+
   traverse(fx = null) {
     let node = this.head;
 
@@ -134,7 +133,6 @@ class DoublyLinkedList {
     }
   }
   
-  // Converts this linked list into an array of the list nodes data.
   toArray() {
     let arr = [];
 
@@ -147,4 +145,4 @@ class DoublyLinkedList {
   }
 }
 
-module.exports = { DoublyLinkedList };
+module.exports = { DoublyLinkedList, DoublyLinkedNode };
