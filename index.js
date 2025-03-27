@@ -1,6 +1,7 @@
 import { DoublyLinkedList } from './structures/lists/DoublyLinkedList.js';
 import { SinglyLinkedList } from './structures/lists/SinglyLinkedList.js';
 import { CircularDoublyLinkedList } from './structures/lists/CircularDoublyLinkedList.js';
+import { BinarySearchTree } from './structures/trees/BinarySearchTree.js';
 
 function testSLLOne() {
   console.log('Testing various data structures implemented in javascript.');
@@ -138,18 +139,35 @@ function testCDLL() {
   console.log('list.toArray(): ' + arr);
 }
 
-console.log('\n\r');
-console.log('TESTING testSLLOne');
-testSLLOne();
+function testLinkedLists() {
+  console.log('\n\r');
+  console.log('TESTING: Linked list 1');
+  testSLLOne();
 
-console.log('\n\r');
-console.log('TESTING testSLLTwo');
-testSLLTwo();
+  console.log('\n\r');
+  console.log('TESTING: Linked List 2');
+  testSLLTwo();
 
-console.log('\n\r');
-console.log('TESTING testDLL');
-testDLL();
+  console.log('\n\r');
+  console.log('TESTING: Doubly Linked List');
+  testDLL();
 
-console.log('\n\r');
-console.log('TESTING testCDLL');
-testCDLL();
+  console.log('\n\r');
+  console.log('TESTING: Circular Doubly Linked List');
+  testCDLL();
+}
+
+function testBST() {
+  let bst = new BinarySearchTree();
+
+  console.log(bst);
+}
+
+function testTrees() {
+  console.log('\n\r');
+  console.log('TESTING: Binary Search Tree');
+  testBST();
+}
+
+testLinkedLists();
+testTrees();
