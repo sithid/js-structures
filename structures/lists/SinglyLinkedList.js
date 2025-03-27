@@ -32,9 +32,8 @@ class SinglyLinkedList {
   // Pop the data from the head node.
   // LIFO
   pop() {
-    if (this.count < 1)
-      return null;
-    
+    if (this.count < 1) return null;
+
     let data = this.head.data;
 
     if (this.head.next !== null) {
@@ -42,8 +41,7 @@ class SinglyLinkedList {
 
       this.head = nextHead;
       --this.count;
-    }
-    else {
+    } else {
       this.head = null;
       this.count = 0;
     }
@@ -62,31 +60,29 @@ class SinglyLinkedList {
 
   // Traverse the linked list, execute given function with the nodes data as param, essentially arr.forEach.
   // If fx is null, log the value of data to the console.
-  traverse( fx = null) {
+  traverse(fx = null) {
     let node = this.head;
 
-    while( node !== null ) {
-      if( fx === null )
-        console.log(node.data);
-      else
-        fx(node.data);
+    while (node !== null) {
+      if (fx === null) console.log(node.data);
+      else fx(node.data);
 
       node = node.next;
     }
   }
 
   // Converts this linked list into an array of the list nodes data.
-  toArray(){
+  toArray() {
     let arr = [];
 
     function addToArray(data) {
       arr.push(data);
     }
-    
+
     // Demonstrate practical use of traverse.
     this.traverse(addToArray);
     return arr;
   }
 }
 
-module.exports = { SinglyLinkedList, SinglyLinkedNode };
+export { SinglyLinkedList, SinglyLinkedNode };
