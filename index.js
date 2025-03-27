@@ -1,24 +1,24 @@
-const { DoublyLinkedList } = require("./structures/lists/DoublyLinkedList.js");
-const { SinglyLinkedList } = require("./structures/lists/SinglyLinkedList.js");
-const { CircularDoublyLinkedList } = require("./structures/lists/CircularDoublyLinkedList.js");
+import { DoublyLinkedList } from './structures/lists/DoublyLinkedList.js';
+import { SinglyLinkedList } from './structures/lists/SinglyLinkedList.js';
+import { CircularDoublyLinkedList } from './structures/lists/CircularDoublyLinkedList.js';
 
 function testSLLOne() {
-  console.log("Testing various data structures implemented in javascript.");
+  console.log('Testing various data structures implemented in javascript.');
 
   const ll = new SinglyLinkedList();
 
   for (let i = 1; i <= 10; i++) ll.push(i);
 
-  console.log("linkedlist.peek(): " + ll.peek());
+  console.log('linkedlist.peek(): ' + ll.peek());
   let data = ll.pop();
-  console.log("linkedlist.pop(): " + data);
-  console.log("linkedlist.count:" + ll.count);
+  console.log('linkedlist.pop(): ' + data);
+  console.log('linkedlist.count:' + ll.count);
 
   while (data != null) {
-    console.log("linkedlist.peek(): " + ll.peek());
+    console.log('linkedlist.peek(): ' + ll.peek());
     data = ll.pop();
-    console.log("linkedlist.pop(): " + data);
-    console.log("linkedlist.count:" + ll.count);
+    console.log('linkedlist.pop(): ' + data);
+    console.log('linkedlist.count:' + ll.count);
   }
 }
 
@@ -39,19 +39,19 @@ function testSLLTwo() {
 
   list.traverse();
   list.traverse(sumData);
-  console.log("The sum of all of the data in the linked list is " + sum);
+  console.log('The sum of all of the data in the linked list is ' + sum);
 
   const arr = list.toArray();
-  console.log("list.toArray(): " + arr);
+  console.log('list.toArray(): ' + arr);
 }
 
 function testDLL() {
   let sum = 0;
 
   function sumData(data) {
-      sum += data;
+    sum += data;
   }
-  
+
   function subData(data) {
     sum -= data;
   }
@@ -65,32 +65,31 @@ function testDLL() {
   list.insertAtHead(53);
   list.insertAtTail(12);
 
-  console.log("Traversing forward through the linked list from the head: ");
+  console.log('Traversing forward through the linked list from the head: ');
 
   list.traverse();
   list.traverse(sumData);
-  
-  console.log("Sum after traversal: " + sum);
 
-  console.log("Reversing backwards through the linked list from the tail: ");
-  
+  console.log('Sum after traversal: ' + sum);
+
+  console.log('Reversing backwards through the linked list from the tail: ');
+
   list.reverse();
   list.reverse(subData);
 
-  console.log("Sum after reversal: " + sum);
+  console.log('Sum after reversal: ' + sum);
 
-  console.log("peekTail: "  + list.peekTail());
+  console.log('peekTail: ' + list.peekTail());
   let data = list.removeTail();
-  console.log("data removed from tail: " + data);
-  console.log("peekTail to verify new tail: " + list.peekTail());
+  console.log('data removed from tail: ' + data);
+  console.log('peekTail to verify new tail: ' + list.peekTail());
 
   const arr = list.toArray();
-  console.log("list.toArray(): " + arr);
+  console.log('list.toArray(): ' + arr);
 }
 
 function testCDLL() {
   let sum = 0;
-  let count = 0; 
 
   function sumData(data) {
     sum += data;
@@ -109,15 +108,15 @@ function testCDLL() {
   list.insertAtHead(53);
   list.insertAtTail(12);
 
-  console.log("Traversing once through the circular list from head: ");
+  console.log('Traversing once through the circular list from head: ');
   list.traverse();
   list.traverse(sumData);
-  console.log("Sum after first traversal: " + sum);
+  console.log('Sum after first traversal: ' + sum);
 
-  console.log("\nReversing once through the circular list from tail: ");
+  console.log('\nReversing once through the circular list from tail: ');
   list.reverse();
   list.reverse(subData);
-  console.log("Sum after reversal: " + sum);
+  console.log('Sum after reversal: ' + sum);
 
   console.log(
     "\nDemonstrating circular nature - following 'next' pointer 12 times:"
@@ -128,29 +127,29 @@ function testCDLL() {
     current = current.next;
   }
 
-  console.log("\nRemoving from both ends:");
-  console.log("Remove head: " + list.removeHead());
-  console.log("Remove tail: " + list.removeTail());
+  console.log('\nRemoving from both ends:');
+  console.log('Remove head: ' + list.removeHead());
+  console.log('Remove tail: ' + list.removeTail());
 
-  console.log("\nFinal list state:");
+  console.log('\nFinal list state:');
   list.traverse();
 
   const arr = list.toArray();
-  console.log("list.toArray(): " + arr);
+  console.log('list.toArray(): ' + arr);
 }
 
-console.log("\n\r");
-console.log("TESTING testSLLOne");
+console.log('\n\r');
+console.log('TESTING testSLLOne');
 testSLLOne();
 
-console.log("\n\r");
-console.log("TESTING testSLLTwo");
+console.log('\n\r');
+console.log('TESTING testSLLTwo');
 testSLLTwo();
 
-console.log("\n\r");
-console.log("TESTING testDLL");
+console.log('\n\r');
+console.log('TESTING testDLL');
 testDLL();
 
-console.log("\n\r");
-console.log("TESTING testCDLL");
+console.log('\n\r');
+console.log('TESTING testCDLL');
 testCDLL();

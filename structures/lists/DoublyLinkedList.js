@@ -2,7 +2,7 @@ class DoublyLinkedNode {
   constructor(data, root = null) {
     this.data = data;
     this.next = null;
-    this.previous = root
+    this.previous = root;
   }
 }
 
@@ -122,7 +122,7 @@ class DoublyLinkedList {
     }
   }
 
-  reverse(fx = null) { 
+  reverse(fx = null) {
     let node = this.tail;
 
     while (node !== null) {
@@ -132,7 +132,7 @@ class DoublyLinkedList {
       node = node.previous;
     }
   }
-  
+
   toArray() {
     let arr = [];
 
@@ -145,4 +145,4 @@ class DoublyLinkedList {
   }
 }
 
-module.exports = { DoublyLinkedList, DoublyLinkedNode };
+export { DoublyLinkedList, DoublyLinkedNode };

@@ -10,7 +10,7 @@
  * console.log("Congrats " + winningPlayer.name ", you WIN!");
  */
 
-const { DoublyLinkedNode } = require("./DoublyLinkedList.js");
+import { DoublyLinkedNode } from './DoublyLinkedList.js';
 
 class CircularDoublyLinkedList {
   constructor() {
@@ -151,4 +151,4 @@ class CircularDoublyLinkedList {
   }
 }
 
-module.exports = { CircularDoublyLinkedList, DoublyLinkedNode };
+export { CircularDoublyLinkedList };
